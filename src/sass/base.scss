@@ -1,0 +1,70 @@
+// expand on normalize css with a few extra defaults
+@use "utilities/utilities" as *;
+
+:root {
+  accent-color: var(--primary);
+}
+
+
+::selection {
+  background: var(--primary);
+  color: var(--text-inverted);
+}
+
+html {
+
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  font-style: var(--font-style);
+
+  color: var(--text);
+  background: var(--app-bkg);
+
+  // @include m.scrolls(var(--primary-hover), var(--gray-70), 10);
+}
+
+body {
+  padding: 0;
+  // padding: env(safe-area-inset-top)
+  //          env(safe-area-inset-right)
+  //          env(safe-area-inset-bottom)
+  //          env(safe-area-inset-left);
+
+  // overflow-x: hidden;
+}
+
+main {
+  width: min(var(--content-width), 100vw - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+header {}
+code {}
+
+:where(a, a:visited) {
+  @include link;
+}
+
+:where(a:hover) {
+  @include link-hover;
+}
+
+p {
+  font-size: var(--font-size);
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  margin-bottom: .35em;
+}
+
+/* utilities */
+.-noScroll {
+  height: 100vh;
+  width: 100vw;
+  overflow: clip;
+}

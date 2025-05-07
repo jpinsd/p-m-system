@@ -1,0 +1,80 @@
+@use "utilities/colors" as *;
+@use "utilities/mixins" as m;
+@use "utilities/metrics"as metric;
+@use "sass:color";
+
+@mixin light {
+  --app-bkg           : #{ $gray-00 };
+  --app-text          : #{ $gray-80 }; // base text color
+  --surface-bkg       : #{ $white };
+  --surface-text      : var(--app-text);
+
+  --modal-text        : #{ $gray-100 };
+  --modal-bkg         : #{ $gray-00 };
+  --modal-overlay     : #{ $gray-80 };
+
+  --interactive-text  : #{ $black };
+  --interactive-bkg   : #{ $gray-05 };
+  --interactive-hover : #{ $gray-00 };
+  --interactive-active: #{ $gray-10 };
+
+  --primary           : #{ $cta };
+  --on-primary        : #{ $white };
+  --primary-hover     : #{ $cta-hover };
+  --primary-active    : #{ $cta-active };
+
+  --text              : var(--app-text);
+  --text-heading      :  #{ $gray-100 };
+  --text-inverted     : #{ $white };
+
+  --border-line       : #{ $gray-20 };
+  --border-width      : 1px;
+}
+
+@mixin dark {
+ @include light; //making everything light mode for now —Jp
+}
+
+@mixin reducedMotion {
+  --tx-s : #{ metric.$ts };
+  --tx-m : #{ metric.$tm };
+  --tx-l : #{ metric.$tl };
+  --tx-x : #{ metric.$tx };
+  --tx-xx: #{ metric.$txx };
+
+  --interactive-feedback: translateY(-.075em) scale(1.01);
+
+
+  @media (prefers-reduced-motion: reduce) {
+  --tx-s : 0s;
+  --tx-m : 0s;
+  --tx-l : 0s;
+  --tx-x : 0s;
+  --tx-xx: 0s;
+
+    --interactive-feedback: translateY(0) scale(1);
+    }
+}
+
+
+
+:root {
+  //color-scheme: light dark; // both are supported
+  color-scheme: only light; // both are supported
+  @include light;
+  @include reducedMotion;
+
+  @media (prefers-color-scheme: dark) {
+    @include dark;
+  }
+}
+
+// theming is coming later – Jp
+
+// .theme-dark {
+//   @include dark;
+// }
+//
+// .theme-light {
+//   @include light;
+// }

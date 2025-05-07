@@ -1,0 +1,51 @@
+@use "sass:color";
+// @use "sass:map";
+// @use "sass:string";
+
+// named colors
+$white : #fff;
+$black : #000;
+
+$gray-00 : #fafafa;
+$gray-05 : #f2f2f2;
+$gray-10 : #e5e5e5;
+$gray-20: #c5c5c5;
+$gray-30: #a5a5a5;
+$gray-40: #858585;
+$gray-60: #656565;
+$gray-80: #454545;
+$gray-100: #252525;
+
+$cta: #658A29;
+$cta-hover: #739D2F;
+$cta-active: #567623;
+
+$error: #E23100;
+$error-hover: #F93B06;
+$error-active: #C72F05;
+
+$warning: #E2A900;
+$warning-hover: #F9BC06;
+$warning-active: #C79605;
+
+$success: #63C41E;
+$success-hover: #72D22D;
+$success-active: #5AAD1F;
+
+$info: #1E7CC4;
+$info-hover: #0690F9;
+$info-active: #296EA3;
+
+
+$focus      : #003f98;
+
+
+@function toRGB($color) {
+  @return color.red($color) + ", " + color.green($color) + ", " + color.blue($color);
+}
+
+@mixin toHSL($color) {
+   --h: #{color.hue($color)};
+   --s: #{color.saturation($color)};
+   --l: #{color.lightness($color)};
+}
