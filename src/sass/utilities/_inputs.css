@@ -1,0 +1,3 @@
+.wrapper:has(input[type=radio]) {
+  gap: 2.5rem;
+}

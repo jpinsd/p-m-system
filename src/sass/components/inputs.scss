@@ -1,0 +1,7 @@
+.wrapper:has(input[type=radio]) {
+  gap: 0.5rem;
+}
+
+.wrapper:has(input[type=checkbox]) {
+  gap: 0.5rem;
+}

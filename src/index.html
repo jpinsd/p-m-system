@@ -51,6 +51,11 @@
     }
     [type="range"] {max-width: 45%}
 
+    .wrapper:has([type=radio]),
+    .wrapper:has([type=checkbox]) {
+      width: min-content;
+    }
+
   </style>
 </head>
 <body>
@@ -204,17 +209,17 @@
          <dt>radio buttons</dt>
            <dd class="flex">
 
-             <div>
+             <div class="wrapper">
                <input type='radio' name='radio-test' id='radio-test-1'>
                <label for='radio-test-1'>Red</label>
              </div>
 
-             <div>
+             <div class="wrapper">
                <input type='radio' name='radio-test' id='radio-test-2'>
                <label for='radio-test-2'>Green</label>
              </div>
 
-             <div>
+             <div class="wrapper">
                <input type='radio' name='radio-test' id='radio-test-3' checked>
                <label for='radio-test-3'>Blue</label>
              </div>
@@ -223,17 +228,17 @@
 
          <dt>checkbox</dt>
            <dd class="flex">
-             <div>
+             <div class="wrapper">
                <input type='checkbox' name='checkbox-1' id='checkbox-1'>
                <label for='checkbox-1'>Cats</label>
              </div>
 
-             <div>
+             <div class="wrapper">
                <input type='checkbox' name='checkbox-2' id='checkbox-2' checked>
                <label for='checkbox-2'>Dogs</label>
              </div>
 
-             <div>
+             <div class="wrapper">
                <input type='checkbox' name='checkbox-3' id='checkbox-3'>
                <label for='checkbox-3'>Turtles</label>
              </div>
